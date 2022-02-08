@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <p id="clicking-method">Clicked</p>
+    <input id="name-input" type="text">
+    <button id="update-name">update</button>
+    <button onclick="handeljustfunction()">Just function</button>
+    <button id="directhandelevent">direct add event listener</button>
+
+
+    <script>
+        function handeljustfunction() {
+            const p = document.getElementById('clicking-method');
+            p.innerText = 'set by using function';
+        }
+
+        //direct
+        document.getElementById('directhandelevent').addEventListener('click', function () {
+            const p = document.getElementById('clicking-method');
+            p.innerText = "added by direct event listener";
+        })
+
+        document.getElementById('update-name').addEventListener('click', function () {
+            const name = document.getElementById('name-input');
+            const p = document.getElementById('clicking-method');
+            p.innerText = name.value;
+            name.value = '';
+        })
+    </script>
+</body>
+
+</html>
